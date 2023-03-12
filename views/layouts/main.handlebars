@@ -13,14 +13,13 @@
     <div class="flex-column justify-space-around">
         <header class="display-flex justify-space-between align-center p-2">
             <nav>
-                <a href="">Home</a>
+                <a href="/">Home</a>
                 <a href="">Dashboard</a>
                 <!-- Conditionally render login or logout links -->
                 {{#if logged_in}}
                 <a href="">Logout</a>
                 {{else}}
-                <a href="/login">login</a>
-                <a href="">Logout</a>
+                <a href="/login">Login</a>
                 {{/if}}
             </nav>
             <h1>
