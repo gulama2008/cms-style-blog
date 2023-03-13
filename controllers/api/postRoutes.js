@@ -23,7 +23,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/detail/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -43,13 +43,44 @@ router.get("/:id", async (req, res) => {
         },
       ],
     });
+    const post = postData.get({ plain: true });
 
-    if (!postData) {
-      res.status(404).json({ message: "No post found with this id!" });
-      return;
-    }
+    res.render("postDetails", {
+      post,
+      user_id: req.session.user_id,
+    });
+      
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-    res.status(200).json(postData);
+router.get("/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+        // {
+        //   model: Comment,
+        //   attributes: ["content", "date_created"],
+        //   include: [
+        //     {
+        //       model: User,
+        //       attributes: ["username"],
+        //     },
+        //   ],
+        // },
+      ],
+    });
+    const post = postData.get({ plain: true });
+
+    res.render("addComment", {
+      post,
+      user_id: req.session.user_id,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
