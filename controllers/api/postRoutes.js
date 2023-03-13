@@ -4,26 +4,25 @@ const withAuth = require("../../utils/auth");
 
 
 router.get('/', withAuth, async (req, res) => {
+    console.log(11111);
     try {
-        const postData = Post.findAll({
+        const postData = await Post.findAll({
             where: user_id = req.session.user_id,
         });
-
-        const posts = postData.map((post) =>
-          post.get({ plain: true })
-        );
-
-        // Pass serialized data and session flag into template
-        res.render("dashboard", {
-          posts,
-          logged_in: req.session.logged_in,
-        });
+        console.log(postData,222222);
+        const posts = postData.map((post) => post.get({ plain: true }));
+        console.log(posts,3333333);
+            // Pass serialized data and session flag into template
+            res.render("dashboard", {
+              posts,
+              logged_in: req.session.logged_in,
+            });
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-router.get("/detail/:id", withAuth, async (req, res) => {
+router.get("/details/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -48,12 +47,30 @@ router.get("/detail/:id", withAuth, async (req, res) => {
     res.render("postDetails", {
       post,
       user_id: req.session.user_id,
+      logged_in: req.session.logged_in,
     });
       
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+
+router.get('/myposts/:id', withAuth, async (req, res) => { 
+    console.log(999999);
+    try {
+        const postData = await Post.findByPk(req.params.id);
+        console.log(postData,12345);
+        const post = postData.get({ plain: true });
+        console.log(post,67890);
+        res.render('editPost', {
+            post,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) { 
+        res.status(500).json(err);
+    }
+})
 
 router.get("/:id", withAuth, async (req, res) => {
   try {
@@ -63,22 +80,13 @@ router.get("/:id", withAuth, async (req, res) => {
           model: User,
           attributes: ["username"],
         },
-        // {
-        //   model: Comment,
-        //   attributes: ["content", "date_created"],
-        //   include: [
-        //     {
-        //       model: User,
-        //       attributes: ["username"],
-        //     },
-        //   ],
-        // },
       ],
     });
     const post = postData.get({ plain: true });
-
+    console.log(post);
     res.render("addComment", {
       post,
+      logged_in: req.session.logged_in,
       user_id: req.session.user_id,
     });
   } catch (err) {
@@ -86,25 +94,12 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get('/myposts/:id', withAuth, async (req, res) => { 
-    try {
-        const postData = await Post.findByPk(req.params.id);
-        const post = postData.get({ plain: true });
-        res.render('editPost', {
-            post,
-            // logged_in: req.session.logged_in
-        });
-    } catch (err) { 
-        res.status(500).json(err);
-    }
-})
-
-
 router.post("/", withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       ...req.body,
       user_id: req.session.user_id,
+      logged_in: req.session.logged_in,
     });
 
     res.status(200).json(newPost);

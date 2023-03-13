@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
-const withAuth = require("../../utils/auth");
+const withAuth = require("../utils/auth");
 
 
-router.get("/", withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     // Get all posts and JOIN with user data
     const postData = await Post.findAll({
@@ -67,7 +67,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
 });
 
 router.get("/post", withAuth, (req, res) => {
-  res.render("newPost");
+    res.render("newPost", {
+    logged_in: req.session.logged_in,
+    });
 });
 
 
