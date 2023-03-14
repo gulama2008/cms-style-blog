@@ -1,21 +1,19 @@
 {{#if posts.length}}
-<div class="post-list">
-
-    {{#each posts as |post|}}
-    <div class="row mb-2">
-        <div class="col-md-8">
-            <h4><a data-id="{{post.id}}" href="/api/posts/myposts/{{post.id}}">{{post.title}}</a></h4>
+<div class="dashboard-container">
+    <div class="post-list">
+        {{#each posts as |post|}}
+        <div class="my-post">
+            <a class="my-post-title" data-id="{{post.id}}" href="/api/posts/myposts/{{post.id}}">{{post.title}}</a></h4>
+            <p class="my-post-date">{{format_date post.date_created}}</p>
         </div>
-        <div class="col-md-4">
-            <h4>{{format_date post.date_created}}</h4>
-        </div>
+        {{/each}}
     </div>
-    {{/each}}
+    {{/if}}
+    
+    <div class="btn-container">
+        <button id="add-new-btn"><a class="btn-anchor" href="/post">+ New Post</a></button>
+    </div>
 </div>
-{{/if}}
 
-<div>
-    <button id="add-new-btn"><a href="/post">+ New Post</a></button>
-</div>
 
 <script src="/js/dashboard.js"></script>
