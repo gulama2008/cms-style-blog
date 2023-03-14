@@ -1,24 +1,24 @@
-<div class="row mb-4 post">
-    <div class="">
-        <h2>
-            <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+<div class="post post-container">
+    <div class="post-head main-color">
+        <h2 class="post-title">
             {{title}}
         </h2>
-        <p>Posted by {{user.username}} on {{format_date date_created}}</p>
+        <p class="post-user">Posted by {{user.username}} on {{format_date date_created}}</p>
     </div>
-    <div class="">
-        <p>
+    <div class="post-content bg-color">
             {{content}}
-        </p>
     </div>
 </div>
 <form class="form add-comment-form" id="comment-btn" data-id="{{id}}" user-id="{{user_id}}">
-    <div class="form-group">
-        <label for="comment-content">Comment</label>
-        <textarea class="form-input" id="comment-content" name="content"></textarea>
+    <div class="form-head main-color"></div>
+    <div class="form-group form-body">
+        <label for="comment-content" class="comment-label">Comment</label>
+        <div class="textarea-container">
+            <textarea class="form-input" id="comment-content" name="content"></textarea>
+        </div>
     </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group submit-btn-container">
+        <button type="submit" class="btn btn-primary submit-btn">Submit</button>
     </div>
 </form>
 

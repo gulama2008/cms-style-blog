@@ -134,3 +134,57 @@ body{
     color: rgb(240, 237, 237);
     font-size: 30px;
 }
+
+
+/* ==========addComment page css========== */
+.add-comment-form{
+    /* display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center; */
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: solid var(--main-color) 4px;
+    margin-bottom: 20px;
+}
+
+.form-head{
+    width: 100%;
+    height: 50px;
+}
+
+.comment-label{
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    font-size: 20px;
+}
+
+.textarea-container{
+    text-align: center;
+}
+
+#comment-content{
+    /* margin: 0 auto; */
+    width: 96%;
+    height: 150px;
+}
+
+.submit-btn-container{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.submit-btn{
+    width: 96%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(97, 100, 90);
+    color: white;
+    font-size: 20px;
+}
+
