@@ -47,3 +47,11 @@ document
     .querySelector('#delete-btn')
     .addEventListener('click', deletePostHandler);
     
+function test() { 
+    const btn = document.querySelector('#update-btn');
+    const id = btn.getAttribute("data-id");
+    console.log(id);
+
+}
+
+test();

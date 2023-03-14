@@ -7,7 +7,7 @@ router.get('/', withAuth, async (req, res) => {
     console.log(11111);
     try {
         const postData = await Post.findAll({
-            where: user_id = req.session.user_id,
+          where: { user_id: req.session.user_id, }
         });
         console.log(postData,222222);
         const posts = postData.map((post) => post.get({ plain: true }));
@@ -43,9 +43,11 @@ router.get("/details/:id", withAuth, async (req, res) => {
       ],
     });
     const post = postData.get({ plain: true });
-
+    console.log(post);
+    // const isUser =( post.comments.user.username === req.session.user_id);
     res.render("postDetails", {
       post,
+      // isUser,
       user_id: req.session.user_id,
       logged_in: req.session.logged_in,
     });
@@ -83,9 +85,9 @@ router.get("/:id", withAuth, async (req, res) => {
       ],
     });
     const post = postData.get({ plain: true });
-    console.log(post);
+    console.log(post,2222222);
     res.render("addComment", {
-      post,
+      ...post,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
     });

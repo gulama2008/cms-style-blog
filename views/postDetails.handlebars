@@ -1,4 +1,4 @@
-<div class="row mb-4 post">
+<div class="post">
     <div class="">
         <h2>
             <!-- Call helper function with triple brackets to render the emoji span as HTML -->
@@ -17,15 +17,20 @@
             {{post.content}}
         </p>
     </div>
-    {{#each comments as |comment| }}
-    <div class="row mb-4 post">
+    {{#each post.comments as |comment| }}
+    <div class="post">
         <div class="">
             <p>
                 {{comment.content}}
             </p>
         </div>
         <div class="">
-            <p>- {{comment.user.username}} on {{format_date post.date_created}}</p>
+            <p>- {{comment.user.username}} on {{format_date comment.date_created}}</p>
+            {{#if isUser}}
+            <button>edit</button>
+            <button>update</button>
+            <button>delete</button>
+            {{/if}}
         </div>
     </div>
     {{/each}}
