@@ -63,7 +63,7 @@ router.post("/register", async (req, res) => {
             return res.json("username exist"); 
         }
         newUser.password = await bcrypt.hash(newUser.password, 10);
-        const userData = User.create(newUser);
+        const userData = await User.create(newUser);
         console.log(userData,4444444);
         req.session.save(() => {
           req.session.user_id = userData.id;
