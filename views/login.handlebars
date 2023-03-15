@@ -1,22 +1,26 @@
-<div class="row">
-    <div class="col-md-6">
-        <h2>Login</h2>
-        <form class="form login-form">
-            <div class="form-group">
-                <label for="username-login">Username:</label>
-                <input class="form-input" type="text" id="username-login" />
+<div class="login-body">
+    <div class="login-form-container">
+        <h2 class="main-color login-head">Login</h2>
+        <form class="form login-form bg-color">
+            <div class="form-group input-container">
+                <label for="username-login" class="username-label">Username</label>
+                <div class="input-username">
+                    <input class="form-input" type="text" id="username-login" />
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password-login">Password:</label>
-                <input class="form-input" type="password" id="password-login" />
+            <div class="form-group input-container">
+                <label for="password-login" class="password-label">Password</label>
+                <div class="input-password">
+                    <input class="form-input" type="password" id="password-login" />
+                </div>
             </div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit">login!</button>
+            <div class="form-group submit-btn-container">
+                <button class="btn btn-primary submit-btn" type="submit">Login!</button>
+            </div>
+            <div class="signup-option-container">
+                <a class="signup-option" href="/register">Sign up instead</a>
             </div>
         </form>
-        <div>
-            <a href="/register">Sign up instead</a>
-        </div>
     </div>
 </div>
 

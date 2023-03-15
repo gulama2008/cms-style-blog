@@ -185,6 +185,56 @@ body{
     border-radius: 10px;
     background-color: rgb(97, 100, 90);
     color: white;
-    font-size: 20px;
+    font-size: 25px;
 }
 
+
+/* ==========login page css========== */
+.login-body{
+    display: flex;
+    justify-content: center;
+}
+
+.login-form-container{
+    margin-top: 25px;
+    border: solid var(--main-color) 4px;
+    width: 90%;
+}
+
+.login-head{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    color: var(--bg-color);
+    font-size: 25px;
+}
+
+.username-label, .password-label{
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    font-size: 25px;
+}
+
+.form-input{
+    width: 94%;
+    height: 50px;
+    font-size: 25px;
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
+
+.input-username,.input-password{
+    text-align: center;
+}
+
+.signup-option-container{
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+.signup-option{
+    text-decoration: none;
+    font-size: 25px;
+}
