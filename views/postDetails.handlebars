@@ -1,43 +1,32 @@
-<div class="post">
-    <div class="">
-        <h2>
-            <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-            <a href="/api/posts/{{post.id}}">{{post.title}}</a>
-        </h2>
-        {{!-- <p>
-            <span for="img" aria-label="money">💲</span>
-            <!-- Pass needed_funding value to the helper function -->
-            <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-            needed!
-        </p> --}}
-        <p>Posted by {{post.user.username}} on {{format_date post.date_created}}</p>
+<div class="post post-container">
+    <div class="post-head main-color">
+        <a class="post-title" href="/api/posts/{{post.id}}">{{post.title}}</a>
+        <p class="post-user">Posted by {{post.user.username}} on {{format_date post.date_created}}</p>
     </div>
-    <div class="">
-        <p>
-            {{post.content}}
-        </p>
+    <div class="post-content bg-color">
+        {{post.content}}
     </div>
-    {{#each post.comments as |comment| }}
-    <div class="post">
-        <div class="">
-            <p>
-                {{comment.content}}
-            </p>
+</div>
+{{#each post.comments as |comment| }}
+<div class="comment comment-container">
+    <div class="comment-head main-color"></div>
+    <div class="comment-body">
+        <div class="comment-content">
+            {{comment.content}}
         </div>
-        <div class="">
-            <p>- {{comment.user.username}} on {{format_date comment.date_created}}</p>
-            {{#if isUser}}
+        <div class="comment-user">
+            —{{comment.user.username}}, {{format_date comment.date_created}}
+            {{!-- {{#if isUser}}
             <button>edit</button>
             <button>update</button>
             <button>delete</button>
-            {{/if}}
+            {{/if}} --}}
         </div>
     </div>
-    {{/each}}
-
-
-    <div class="">
-        <button><a href="/api/posts/{{post.id}}">Add Comment</a></button>
-    </div>
+    
+</div>
+{{/each}}
+<div class="">
+    <button><a href="/api/posts/{{post.id}}">Add Comment</a></button>
 </div>
 

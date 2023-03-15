@@ -246,3 +246,30 @@ body{
 #add-new-post{
     margin-top: 10px;
 }
+
+/* ===========postDetails page css============ */
+.comment-container{
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: solid var(--main-color) 4px;
+    margin-bottom: 20px;
+}
+
+.comment-head {
+    width: 100%;
+    height: 50px;
+}
+
+.comment-content{
+    padding-top: 30px;
+    padding-left: 30px;
+    font-size: 20px;
+}
+
+.comment-user{
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    font-size: 20px;
+}
