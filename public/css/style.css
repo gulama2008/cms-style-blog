@@ -189,19 +189,19 @@ body{
 }
 
 
-/* ==========login&signup$edit post page css========== */
-.login-body,.signup-body,.edit-post-body{
+/* ==========login&signup$editPost&newPost page css========== */
+.login-body,.signup-body,.edit-post-body,.new-post-body{
     display: flex;
     justify-content: center;
 }
 
-.login-form-container,.signup-form-container,.edit-post-container{
+.login-form-container,.signup-form-container,.edit-post-container,.new-post-container{
     margin-top: 25px;
     border: solid var(--main-color) 4px;
     width: 90%;
 }
 
-.login-head, .signup-head,.edit-post-head{
+.login-head, .signup-head,.edit-post-head,.new-post-head{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -241,4 +241,8 @@ body{
 
 .post-content-textarea{
     height: 100px;
+}
+
+#add-new-post{
+    margin-top: 10px;
 }
