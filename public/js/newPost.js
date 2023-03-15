@@ -1,3 +1,6 @@
+const mainTitle = document.querySelector(".main-title");
+mainTitle.textContent = "Your Dashboard";
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -24,4 +27,3 @@ const newFormHandler = async (event) => {
 document
   .querySelector(".new-post-form")
   .addEventListener("submit", newFormHandler);
-
