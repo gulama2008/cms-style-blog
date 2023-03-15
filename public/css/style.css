@@ -120,7 +120,7 @@ body{
     margin-top: 300px;
 }
 
-#add-new-btn{
+.add-new-btn{
     
     height: 60px;
     width: 200px;
@@ -189,19 +189,19 @@ body{
 }
 
 
-/* ==========login&signup page css========== */
-.login-body,.signup-body{
+/* ==========login&signup$edit post page css========== */
+.login-body,.signup-body,.edit-post-body{
     display: flex;
     justify-content: center;
 }
 
-.login-form-container,.signup-form-container{
+.login-form-container,.signup-form-container,.edit-post-container{
     margin-top: 25px;
     border: solid var(--main-color) 4px;
     width: 90%;
 }
 
-.login-head, .signup-head{
+.login-head, .signup-head,.edit-post-head{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -209,7 +209,7 @@ body{
     font-size: 25px;
 }
 
-.username-label, .password-label{
+.username-label, .password-label,.title-label,.content-label{
     display: block;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -225,7 +225,7 @@ body{
     margin-bottom: 0px;
 }
 
-.input-username,.input-password{
+.input-username,.input-password,.input-title,.input-content{
     text-align: center;
 }
 
@@ -237,4 +237,8 @@ body{
 .signup-option,.login-option{
     text-decoration: none;
     font-size: 25px;
+}
+
+.post-content-textarea{
+    height: 100px;
 }
