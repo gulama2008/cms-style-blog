@@ -189,19 +189,19 @@ body{
 }
 
 
-/* ==========login page css========== */
-.login-body{
+/* ==========login&signup page css========== */
+.login-body,.signup-body{
     display: flex;
     justify-content: center;
 }
 
-.login-form-container{
+.login-form-container,.signup-form-container{
     margin-top: 25px;
     border: solid var(--main-color) 4px;
     width: 90%;
 }
 
-.login-head{
+.login-head, .signup-head{
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 20px;
@@ -229,12 +229,12 @@ body{
     text-align: center;
 }
 
-.signup-option-container{
+.signup-option-container, .login-option-container{
     padding-left: 30px;
     margin-bottom: 30px;
 }
 
-.signup-option{
+.signup-option,.login-option{
     text-decoration: none;
     font-size: 25px;
 }
