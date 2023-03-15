@@ -1,4 +1,4 @@
-<div class="post post-container">
+<div class="post post-container" data-login="{{user_name}}">
     <div class="post-head main-color">
         <a class="post-title" href="/api/posts/{{post.id}}">{{post.title}}</a>
         <p class="post-user">Posted by {{post.user.username}} on {{format_date post.date_created}}</p>
@@ -14,19 +14,18 @@
         <div class="comment-content">
             {{comment.content}}
         </div>
-        <div class="comment-user">
+        <div class="comment-user" data-user="{{comment.user.username}}" >
             —{{comment.user.username}}, {{format_date comment.date_created}}
-            {{!-- {{#if isUser}}
-            <button>edit</button>
-            <button>update</button>
-            <button>delete</button>
-            {{/if}} --}}
         </div>
     </div>
-    
+    <div class="update-comment-container">
+        <button class="update-comment-btn"><a href="/api/comments/{{comment.id}}">Update</a> </button>
+    </div>
 </div>
 {{/each}}
 <div class="comment-btn-container">
     <button class="add-comment-btn"><a class="comment-btn-anchor" href="/api/posts/{{post.id}}">Add Comment</a></button>
 </div>
+
+<script src="/js/postDetails.js"></script>
 

@@ -1,10 +1,37 @@
 const router = require('express').Router();
-const { Comment } = require("../../models");
+const { Post, User, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
-router.get('/', async (req, res) => {
-    const commentData = await Comment.findAll();
-    res.status(200).json(commentData);
+
+router.get("/", async (req, res) => {
+  const commentData = await Comment.findAll();
+  res.status(200).json(commentData);
 });
+
+
+router.get("/:id", withAuth, async (req, res) => {
+  console.log('test');
+  try {
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+    const comment = commentData.get({ plain: true });
+    console.log(comment, 2222222);
+    res.render("updateComment", {
+      ...comment,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 router.post("/", withAuth, async (req, res) => {
   try {

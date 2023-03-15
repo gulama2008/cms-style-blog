@@ -32,7 +32,7 @@ router.get("/details/:id", withAuth, async (req, res) => {
         },
         {
           model: Comment,
-            attributes: ["content", "date_created"],
+            attributes: ["id","content", "date_created"],
             include: [
                 {
                     model: User,
@@ -44,10 +44,11 @@ router.get("/details/:id", withAuth, async (req, res) => {
     });
     const post = postData.get({ plain: true });
     console.log(post);
+    console.log(req.session.username);
     // const isUser =( post.comments.user.username === req.session.user_id);
     res.render("postDetails", {
       post,
-      // isUser,
+      user_name:req.session.username,
       user_id: req.session.user_id,
       logged_in: req.session.logged_in,
     });

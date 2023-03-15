@@ -137,7 +137,7 @@ body{
 
 
 /* ==========addComment page css========== */
-.add-comment-form{
+.add-comment-form,.update-comment-form{
     /* display: flex;
     flex-direction: column;
     justify-content:space-between;
