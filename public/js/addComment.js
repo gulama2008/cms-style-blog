@@ -1,3 +1,4 @@
+//handdleer function of clicking add-comment button
 const newCommentHandler = async (event) => {
   event.preventDefault();
   const content = document.querySelector("#comment-content").value.trim();

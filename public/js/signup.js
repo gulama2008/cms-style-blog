@@ -1,10 +1,12 @@
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
+  // Collect values from the signup form
   const username = document.querySelector("#username-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
 
   if (username && password) {
+    // Send a POST request to the API endpoint
     const response = await fetch("/api/users/register", {
       method: "POST",
       body: JSON.stringify({ username, password }),
@@ -12,6 +14,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      // If successful, redirect the browser to the home page
       document.location.replace("/");
     } else {
       alert(response.statusText);

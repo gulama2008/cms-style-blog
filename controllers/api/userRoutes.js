@@ -42,15 +42,14 @@ router.post('/login', async (req, res) => {
 })
 
 router.post('/logout', withAuth, async(req,res)=> {
-    try {
-        if (req.session.logged_in) { 
-            req.session.destroy()
-        }
-    } catch (err) { 
-        res.status(400).json(err);
-    }
-})
-
+    if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
 
 router.post("/register", async (req, res) => {
     console.log('signup',333333);
